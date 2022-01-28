@@ -91,6 +91,26 @@ func UpdatePost(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": deltaStruct})
 }
 
+// DELETE /posts/:id
+// Delete a post
+func DeletePost(c *gin.Context) {
+	var post models.Post
+
+	id := c.Param("id")
+	err := models.GetDB().Get(&post, "SELECT * FROM posts WHERE id=$1", id)
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Post not found"})
+		return
+	}
+
+	_, err = models.GetDB().NamedQuery(`DELETE FROM posts WHERE id=:id`, map[string]interface{}{"id": id})
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	c.JSON(http.StatusNoContent, gin.H{"data": true})
+}
+
 func findChangesInStruct(before interface{}, after interface{}) map[string]interface{} {
 	beforeMap := structs.Map(before)
 	for _, f := range structs.Fields(after) {
