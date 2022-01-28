@@ -20,6 +20,7 @@ func main() {
 	r.GET("/posts", controllers.FindPosts)
 	r.GET("/posts/:id", controllers.FindPost)
 	r.POST("/posts", controllers.CreatePost)
+	r.PATCH("/posts/:id", controllers.UpdatePost)
 
 	r.Run()
 }
