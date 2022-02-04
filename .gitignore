@@ -2,7 +2,7 @@
 .DS_Store
 
 # DB stuff
-./database-dir
+./database-dir/*
 
 # Binaries for programs and plugins
 *.exe
