@@ -1,0 +1,2 @@
+INSERT INTO posts(title, author, content) VALUES('First Post', 'Kevin Laborda', 'This is the first post');
+INSERT INTO posts(title, author, content) VALUES('Second Post', 'Kevin Laborda', 'This is the second post');

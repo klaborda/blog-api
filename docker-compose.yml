@@ -1,0 +1,19 @@
+# Use postgres/example user/password credentials
+version: "3.1"
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: blogapi
+    volumes:
+      - ./database-dir:/var/lib/postgresql/data
+      - ./db/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+      - ./db/fill_tables.sql:/docker-entrypoint-initdb.d/fill_tables.sql
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080

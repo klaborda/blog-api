@@ -1,6 +1,9 @@
 # Mac OS X files
 .DS_Store
 
+# DB stuff
+./database-dir
+
 # Binaries for programs and plugins
 *.exe
 *.dll
