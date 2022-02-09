@@ -4,4 +4,5 @@
 - [ ] Setup a docker to run psql
 - [ ] Migrate over to running with psql instead of sqlite
 - [ ] Leverage viper or godotenv to load in relevant config (which will also be in docker compose)
-- [ ] Look into auth opportunities
+- [ ] Leverage gin-jwt middleware (look at using argon2id for hashing?)
+- [ ] Look into auth opportunities (see above)
